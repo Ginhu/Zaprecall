@@ -14,6 +14,7 @@ export default function Questions(props) {
     const [show, setShow] = useState(0)
     const [icon, setIcon] = useState(Play)
     const [colorDone, setColorDone] = useState("#333333")
+    const [dataTest, setDataTest] = useState("play-btn")
 
     function clickShowNext() {
         if(icon === Play) {
@@ -25,14 +26,17 @@ export default function Questions(props) {
         if (el === 1) {
             setIcon(Wrong)
             setColorDone("#FF3030")
+            setDataTest("no-icon")
             props.contarJogada()
         } else if (el === 2) {
             setIcon(Almost)
             setColorDone("#FF922E")
+            setDataTest("partial-icon")
             props.contarJogada()
         } else {
             setIcon(Zap)
             setColorDone("#2FBE34")
+            setDataTest("zap-icon")
             props.contarJogada()
         }
         setShow(0)
@@ -43,9 +47,11 @@ export default function Questions(props) {
     return (
         <>
             <DivQuestions>
-                <Id index={props.mock.Index} icon={icon} colorDone={colorDone} click={clickShowNext} show={show}/>
+                <div data-test="flashcard" >
+                <Id index={props.mock.Index} icon={icon} colorDone={colorDone} click={clickShowNext} show={show} dataTest={dataTest}/>
                 <Question question={props.mock.Question} click={clickShowNext} show={show}/>
                 <Answer answer={props.mock.Answer} show={show} chooseIcon={chooseIcon}/>
+                </div>
             </DivQuestions>
         </>
     )

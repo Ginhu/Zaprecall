@@ -3,11 +3,11 @@ import styled from "styled-components"
 export default function Answer(props) {
     return (
         <DivAnswer show={props.show}>
-            <p>{props.answer}</p>
+            <p data-test="flashcard-text">{props.answer}</p>
            <div>
-            <NaoLembrei onClick={()=>props.chooseIcon(1)}>Não lembrei</NaoLembrei>
-            <QuaseNaoLembrei onClick={()=>props.chooseIcon(2)}>Quase não lembrei</QuaseNaoLembrei>
-            <Zap onClick={()=>props.chooseIcon(3)}>Zap!</Zap>
+            <NaoLembrei><button onClick={()=>props.chooseIcon(1)} data-test="no-btn">Não lembrei</button></NaoLembrei>
+            <QuaseNaoLembrei><button onClick={()=>props.chooseIcon(2)} data-test="partial-btn">Quase não lembrei</button></QuaseNaoLembrei>
+            <Zap><button onClick={()=>props.chooseIcon(3)} data-test="zap-btn">Zap!</button></Zap>
            </div>
         </DivAnswer>
     )
@@ -40,9 +40,19 @@ const DivAnswer = styled.div`
         margin: 0 10px 15px;
     }
 
+    button {
+        background: none;
+        color: inherit;
+        border: none;
+        padding: 0;
+        font: inherit;
+        cursor: pointer;
+        outline: inherit;
+    }
+
 `
 
-const NaoLembrei = styled.button`
+const NaoLembrei = styled.span`
     width: 85px;
     height: 37px;
     background-color: #ff3030;
@@ -53,9 +63,13 @@ const NaoLembrei = styled.button`
     font-weight: 400;
     line-height: 14px;
     border:none;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 `
 
-const QuaseNaoLembrei = styled.button`
+const QuaseNaoLembrei = styled.span`
     width: 85px;
     height: 37px;
     background-color: #ff922e;
@@ -66,9 +80,13 @@ const QuaseNaoLembrei = styled.button`
     font-weight: 400;
     line-height: 14px;
     border:none;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 `
 
-const Zap = styled.button`
+const Zap = styled.span`
     width: 85px;
     height: 37px;
     background-color: #2fbe34;
@@ -79,4 +97,8 @@ const Zap = styled.button`
     font-weight: 400;
     line-height: 14px;
     border:none;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 `

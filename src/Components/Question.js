@@ -3,9 +3,9 @@ import Virar from "../assets/seta_virar.png"
 export default function Question(props) {
     return (
         <DivQuestion show={props.show}>
-           <p>{props.question}</p>
+           <p data-test="flashcard-text">{props.question}</p>
            <div>
-            <img src={Virar} onClick={props.click} alt=""/>
+            <img src={Virar} onClick={props.click} alt="" data-test="turn-btn"/>
            </div>
         </DivQuestion>
     )

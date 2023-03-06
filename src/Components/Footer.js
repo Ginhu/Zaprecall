@@ -4,7 +4,7 @@ export default function Footer(props) {
     return (
         <>
             <DivFooter>
-                <p>{props.cont}/{props.mock.length} CONCLUÍDOS</p>
+                <p data-test="footer">{props.cont}/{props.mock.length} CONCLUÍDOS</p>
             </DivFooter>
         </>
     )

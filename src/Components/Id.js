@@ -5,8 +5,8 @@ export default function Id(props) {
 
     return (
         <DivId show={props.show} colorDone={props.colorDone}>
-            <p>{props.index}</p>
-            <img src={props.icon} onClick={props.click} alt=""/>
+            <p data-test="flashcard-text">{props.index}</p>
+            <img src={props.icon} onClick={props.click} alt="" data-test={props.dataTest}/>
         </DivId>
     )
 }
