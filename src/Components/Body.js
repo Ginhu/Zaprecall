@@ -10,6 +10,8 @@ export default function Body() {
 
     const [cont, setCont] = useState(0)
     const [welcome, setWelcome] = useState(true)
+    const [iconsAnswer, setIconsAnswer] = useState([])
+    const [dataTestIcon, setDataTestIcon] = useState("")
 
     function contarJogada() {
         setCont(cont+1)
@@ -29,9 +31,9 @@ export default function Body() {
             <DivBody welcome={welcome}>
                 <Header/>
                 <DivBodyQuestions>
-                    {mock.map((o)=> <Questions key={o.Index} mock={o} contarJogada={contarJogada}/>)}
+                    {mock.map((o)=> <Questions key={o.Index} mock={o} contarJogada={contarJogada} iconsAnswer={iconsAnswer} setIconsAnswer={setIconsAnswer} setDataTestIcon={setDataTestIcon}/>)}
                 </DivBodyQuestions>
-                <Footer cont={cont} mock={mock}/>
+                <Footer cont={cont} mock={mock} iconsAnswer={iconsAnswer} dataTestIcon={dataTestIcon}/>
             </DivBody>
         </>
     )

@@ -27,17 +27,23 @@ export default function Questions(props) {
             setIcon(Wrong)
             setColorDone("#FF3030")
             setDataTest("no-icon")
+            props.setIconsAnswer([...props.iconsAnswer, Wrong])
             props.contarJogada()
+            props.setDataTestIcon("no-icon")
         } else if (el === 2) {
             setIcon(Almost)
             setColorDone("#FF922E")
             setDataTest("partial-icon")
+            props.setIconsAnswer([...props.iconsAnswer, Almost])
             props.contarJogada()
+            props.setDataTestIcon("partial-icon")
         } else {
             setIcon(Zap)
             setColorDone("#2FBE34")
             setDataTest("zap-icon")
+            props.setIconsAnswer([...props.iconsAnswer, Zap])
             props.contarJogada()
+            props.setDataTestIcon("zap-icon")
         }
         setShow(0)
     }

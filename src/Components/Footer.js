@@ -1,10 +1,14 @@
 import styled from "styled-components"
+import IconsAnswers from "./IconsAnswers"
 
 export default function Footer(props) {
     return (
         <>
             <DivFooter>
                 <p data-test="footer">{props.cont}/{props.mock.length} CONCLUÍDOS</p>
+                <div>
+                    {props.iconsAnswer.map((el)=><IconsAnswers key={el} el={el} dataTestIcon={props.dataTestIcon}/>)}
+                </div>
             </DivFooter>
         </>
     )
@@ -18,6 +22,7 @@ const DivFooter = styled.div`
     height: 10vh;
     background-color: #ffffff;
     display: flex;
+    flex-direction:column;
     justify-content: center;
     align-items: center;
 
@@ -26,5 +31,10 @@ const DivFooter = styled.div`
         font-size: 18px;
         line-height: 22px;
         color: #333333;
+    }
+
+    div {
+        display: flex;
+        margin-top: 2px;
     }
 `
