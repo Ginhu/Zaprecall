@@ -2,15 +2,25 @@ import Header from "./Header"
 import Footer from "./Footer"
 import Questions from "./Questions"
 import styled from "styled-components"
+import { useState } from "react"
+import mock from "../mock"
 
 export default function Body() {
+
+    const [cont, setCont] = useState(0)
+
+    function contarJogada() {
+        setCont(cont+1)
+    }
+
     return (
         <>
             <DivBody>
                 <Header/>
-                <Questions/>
-                <Questions/>
-                <Footer/>
+                <DivBodyQuestions>
+                    {mock.map((o)=> <Questions key={o.Index} mock={o} contarJogada={contarJogada}/>)}
+                </DivBodyQuestions>
+                <Footer cont={cont} mock={mock}/>
             </DivBody>
         </>
     )
@@ -24,4 +34,9 @@ const DivBody = styled.div`
     display:flex;
     align-items:center;
     flex-direction: column;
+`
+
+const DivBodyQuestions = styled.div`
+    margin-bottom: 15vh;
+    overflow-y: auto;
 `

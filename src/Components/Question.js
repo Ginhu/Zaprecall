@@ -1,11 +1,11 @@
 import styled from "styled-components"
 import Virar from "../assets/seta_virar.png"
-export default function Question() {
+export default function Question(props) {
     return (
-        <DivQuestion>
-           <p>Qual o seu nome?</p>
+        <DivQuestion show={props.show}>
+           <p>{props.question}</p>
            <div>
-            <img src={Virar}/>
+            <img src={Virar} onClick={props.click} alt=""/>
            </div>
         </DivQuestion>
     )
@@ -21,7 +21,7 @@ const DivQuestion = styled.div`
     justify-content: space-between;
     flex-direction:column;
     margin-bottom: 20px;
-    display: none;
+    display: ${ props => props.show === 1 ? "visible" : "none"};
 
     p {
         margin: 20px 30px;

@@ -1,10 +1,10 @@
 import styled from "styled-components"
 
-export default function Footer() {
+export default function Footer(props) {
     return (
         <>
             <DivFooter>
-                <p>0/4 CONCLUÍDOS</p>
+                <p>{props.cont}/{props.mock.length} CONCLUÍDOS</p>
             </DivFooter>
         </>
     )

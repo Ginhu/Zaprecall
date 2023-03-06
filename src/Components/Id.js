@@ -1,10 +1,12 @@
 import styled from "styled-components"
-import Play from "../assets/seta_play.png"
-export default function Id() {
+
+
+export default function Id(props) {
+
     return (
-        <DivId>
-            <p>Pergunta 1</p>
-            <img src={Play}/>
+        <DivId show={props.show} colorDone={props.colorDone}>
+            <p>{props.index}</p>
+            <img src={props.icon} onClick={props.click} alt=""/>
         </DivId>
     )
 }
@@ -20,15 +22,16 @@ const DivId = styled.div`
     align-items:center;
     justify-content:space-between;
     margin-bottom: 20px;
-    display: visible;
+    display: ${ props => props.show === 0 ? "visible" : "none"};
 
     p {
     font-family: 'Recursive', sans-serif;
-    color: #333333;
+    color: ${props=>props.colorDone};
     font-size: 16px;
     font-weight: 700;
     line-height: 19px;
     margin-left: 30px;
+    text-decoration-line:${props=>props.colorDone !== "#333333" && "line-through"};
     
     }
 

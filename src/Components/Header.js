@@ -18,6 +18,7 @@ const DivHeader = styled.div`
     height: 20vh;
     justify-content:center;
     align-items: center;
+    margin: 2vh 0;
 
     p {
         font-family: 'Righteous', cursive;

@@ -1,13 +1,13 @@
 import styled from "styled-components"
 
-export default function Answer() {
+export default function Answer(props) {
     return (
-        <DivAnswer>
-            <p>Meu nome é</p>
+        <DivAnswer show={props.show}>
+            <p>{props.answer}</p>
            <div>
-            <NaoLembrei>Não lembrei</NaoLembrei>
-            <QuaseNaoLembrei>Quase não lembrei</QuaseNaoLembrei>
-            <Zap>Zap!</Zap>
+            <NaoLembrei onClick={()=>props.chooseIcon(1)}>Não lembrei</NaoLembrei>
+            <QuaseNaoLembrei onClick={()=>props.chooseIcon(2)}>Quase não lembrei</QuaseNaoLembrei>
+            <Zap onClick={()=>props.chooseIcon(3)}>Zap!</Zap>
            </div>
         </DivAnswer>
     )
@@ -23,10 +23,10 @@ const DivAnswer = styled.div`
     justify-content: space-between;
     flex-direction:column;
     margin-bottom: 20px;
-    display: none;
+    display: ${ props => props.show === 2 ? "visible" : "none"};
 
     p {
-        margin: 20px 30px;
+        margin: 10px 10px 0;
         font-family: 'Recursive', sans-serif;
         color: #333333;
         font-size: 18px;
@@ -37,7 +37,7 @@ const DivAnswer = styled.div`
     div {
         display:flex;
         justify-content: space-between;
-        margin: 20px 10px;
+        margin: 0 10px 15px;
     }
 
 `
