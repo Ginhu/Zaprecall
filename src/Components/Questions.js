@@ -8,7 +8,6 @@ import Zap from "../assets/icone_certo.png"
 import Almost from "../assets/icone_quase.png"
 import Wrong from "../assets/icone_erro.png"
 
-
 export default function Questions(props) {
 
     const [show, setShow] = useState(0)

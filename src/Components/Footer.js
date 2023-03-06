@@ -7,7 +7,7 @@ export default function Footer(props) {
             <DivFooter>
                 <p data-test="footer">{props.cont}/{props.mock.length} CONCLUÍDOS</p>
                 <div>
-                    {props.iconsAnswer.map((el)=><IconsAnswers key={el} el={el} dataTestIcon={props.dataTestIcon}/>)}
+                    {props.iconsAnswer.map((el)=><IconsAnswers key={el} el={el}/>)}
                 </div>
             </DivFooter>
         </>
